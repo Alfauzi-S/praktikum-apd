@@ -64,6 +64,3 @@ elif pilihan == 3:
     tinggi = float(input("masukkan tinggi: "))
     volume = 3.14 * jari_jari * jari_jari * tinggi
     print("volume tabung adalah: ", volume)
-
-
-
