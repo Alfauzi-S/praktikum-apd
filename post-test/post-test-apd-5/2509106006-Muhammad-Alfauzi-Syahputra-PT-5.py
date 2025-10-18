@@ -60,7 +60,7 @@ while True:
                                 print(Fore.RED + '\nID harus berupa angka!')
                                 input(Fore.CYAN + 'Tekan Enter untuk mencoba lagi...' + Style.RESET_ALL)
                                 continue
-                            
+                                
                             input_id = int(input_id_str)
                             id_tersedia = True
                             for i in data_pertandingan:
