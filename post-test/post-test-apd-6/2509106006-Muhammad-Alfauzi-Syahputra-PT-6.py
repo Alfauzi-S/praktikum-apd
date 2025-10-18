@@ -169,7 +169,7 @@ while True:
                             while not input_id_str.strip():
                                 input_id_str = input('\nMasukkan ID yang ingin diubah (atau ketik "x" untuk kembali): ')
                                 if not input_id_str.strip():
-                                    print(Fore.RED + "ID tidak boleh kosong. Silakan coba lagi.")
+                                    print(Fore.RED + 'ID tidak boleh kosong. Silakan coba lagi.')
                             if input_id_str == 'x':
                                 break
                             elif not input_id_str.isdigit():
@@ -342,7 +342,7 @@ while True:
             while not username_baru.strip():
                 username_baru = input('Masukkan Username Baru (atau ketik "X" untuk kembali): ')
                 if not username_baru.strip():
-                    print(Fore.RED + "Username tidak boleh kosong.")
+                    print(Fore.RED + 'Username tidak boleh kosong.')
 
             if username_baru == 'x':
                 break
@@ -360,7 +360,7 @@ while True:
                 while not password_baru.strip():
                     password_baru = input('Masukkan Password Baru: ')
                     if not password_baru.strip():
-                        print(Fore.RED + "Password tidak boleh kosong.")
+                        print(Fore.RED + 'Password tidak boleh kosong.')
                 data_user.append({'username' : username_baru, 'password' :password_baru, 'role' : 'user'})
                 print(Fore.GREEN + '\nRegistrasi berhasil! Silakan login.')
                 input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
