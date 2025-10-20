@@ -28,11 +28,10 @@ while True:
             if not input_password.strip():
                 print(Fore.RED + "Password tidak boleh kosong.")
 
-        for user in data_user:
-            if input_username in data_user and data_user[input_username]['password'] == input_password:
-                peran_user = data_user[input_username]['role']
-                login_berhasil = True
-                break
+        if input_username in data_user and data_user[input_username]['password'] == input_password:
+            peran_user = data_user[input_username]['role']
+            login_berhasil = True
+            break
 
         if login_berhasil == True:
             print(Fore.GREEN + (f'\n{'-'*17}{'Login berhasil'}{'-'*18}'))
