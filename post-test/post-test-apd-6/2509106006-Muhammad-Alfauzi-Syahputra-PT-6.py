@@ -29,8 +29,8 @@ while True:
                 print(Fore.RED + "Password tidak boleh kosong.")
 
         for user in data_user:
-            if user['username'] == input_username and user['password'] == input_password:
-                peran_user = user['role']
+            if input_username in data_user and data_user[input_username]['password'] == input_password:
+                peran_user = data_user[input_username]['role']
                 login_berhasil = True
                 break
 
@@ -59,13 +59,13 @@ while True:
                         tabel = PrettyTable()
                         tabel.field_names = ['ID', 'Pemain Putih', 'Pemain Hitam', 'Jumlah Langkah', 'Pemenang']
                         if data_pertandingan:
-                            for pertandingan in data_pertandingan:
+                            for id_match, details in data_pertandingan.items():
                                 tabel.add_row([
-                                    pertandingan['id'],
-                                    pertandingan['pemain_putih'],
-                                    pertandingan['pemain_hitam'],
-                                    pertandingan['jumlah_langkah'],
-                                    pertandingan['pemenang']
+                                    id_match,
+                                    details['pemain_putih'],
+                                    details['pemain_hitam'],
+                                    details['jumlah_langkah'],
+                                    details['pemenang']
                                 ])
                             print(tabel)
                         else:
@@ -90,12 +90,8 @@ while True:
                                 continue
                             
                             input_id = int(input_id_str)
-                            id_tersedia = True
-                            for i in data_pertandingan:
-                                if i['id'] == input_id:
-                                    id_tersedia = False
-                                    break
-                            if id_tersedia == True:
+
+                            if input_id not in data_pertandingan:
                                 nama_putih = ""
                                 while not nama_putih.strip():
                                     nama_putih = input('Nama Pemain Putih: ')
@@ -129,13 +125,13 @@ while True:
                                         break
                                     else:
                                         print(Fore.RED + 'Pilihan tidak valid.')
-                                data_pertandingan.append({
-                                    'id': input_id,
+
+                                data_pertandingan[input_id] = {
                                     'pemain_putih': nama_putih,
                                     'pemain_hitam': nama_hitam,
                                     'jumlah_langkah': jumlah_langkah,
                                     'pemenang': hasil
-                                })
+                                }
 
                                 print(Fore.GREEN + '\nData berhasil ditambahkan!')
                                 input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
@@ -154,13 +150,13 @@ while True:
                             input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
                             continue
                         if data_pertandingan:
-                            for pertandingan in data_pertandingan:
+                            for id_match, details in data_pertandingan.items():
                                 tabel.add_row([
-                                    pertandingan['id'],
-                                    pertandingan['pemain_putih'],
-                                    pertandingan['pemain_hitam'],
-                                    pertandingan['jumlah_langkah'],
-                                    pertandingan['pemenang']
+                                    id_match,
+                                    details['pemain_putih'],
+                                    details['pemain_hitam'],
+                                    details['jumlah_langkah'],
+                                    details['pemenang']
                                 ])
                             print(tabel)
 
@@ -177,16 +173,9 @@ while True:
                                 continue
 
                             input_id = int(input_id_str)
-                            data_ditemukan = False
-
-                            for i in range(len(data_pertandingan)):
-                                if data_pertandingan[i]['id'] == input_id:
-                                    data_ditemukan = True
-                                    indeks_data = i
-                                    break
                             
-                            if data_ditemukan == True:
-                                print(Fore.CYAN + f'\nMengubah data untuk ID {input_id}: {data_pertandingan[indeks_data]}')
+                            if input_id in data_pertandingan:
+                                print(Fore.CYAN + f'\nMengubah data untuk ID {input_id}')
                                 nama_putih_baru = ''
                                 while not nama_putih_baru.strip():
                                     nama_putih_baru = input('Nama Pemain Putih Baru: ')
@@ -226,10 +215,13 @@ while True:
                                     else:
                                         print(Fore.RED + 'Pilihan tidak valid.')
                             
-                                data_pertandingan[i]['pemain_putih'] = nama_putih_baru
-                                data_pertandingan[i]['pemain_hitam'] = nama_hitam_baru
-                                data_pertandingan[i]['jumlah_langkah'] = jumlah_langkah_baru_str
-                                data_pertandingan[i]['pemenang'] = pilihan_hasil_baru
+                                data_pertandingan[input_id] = {
+                                    'pemain_putih': nama_putih_baru,
+                                    'pemain_hitam': nama_hitam_baru,
+                                    'jumlah_langkah': jumlah_langkah_baru,
+                                    'pemenang': hasil_baru
+                                }
+
                                 print(Fore.GREEN + '\nData berhasil diubah!')
                                 input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
                                 break
@@ -246,13 +238,13 @@ while True:
                             input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
                             continue
                         if data_pertandingan:
-                            for pertandingan in data_pertandingan:
+                            for id_match, details in data_pertandingan.items():
                                 tabel.add_row([
-                                    pertandingan['id'],
-                                    pertandingan['pemain_putih'],
-                                    pertandingan['pemain_hitam'],
-                                    pertandingan['jumlah_langkah'],
-                                    pertandingan['pemenang']
+                                    id_match,
+                                    details['pemain_putih'],
+                                    details['pemain_hitam'],
+                                    details['jumlah_langkah'],
+                                    details['pemenang']
                                 ])
                             print(tabel)
                         
@@ -269,16 +261,9 @@ while True:
                                 continue
                             
                             input_id = int(input_id_str)
-                            data_ditemukan = False
 
-                            for i in range(len(data_pertandingan)):
-                                if data_pertandingan[i]['id'] == input_id:
-                                    data_ditemukan = True
-                                    indeks_data = i
-                                    break
-
-                            if data_ditemukan == True:
-                                data_pertandingan.pop(indeks_data)
+                            if input_id in data_pertandingan:
+                                del data_pertandingan[input_id]
                                 print(Fore.GREEN + f'\nData ID {input_id} berhasil dihapus!')
                                 input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
                                 break
@@ -310,13 +295,13 @@ while True:
                         tabel = PrettyTable()
                         tabel.field_names = ['ID', 'Pemain Putih', 'Pemain Hitam', 'Jumlah Langkah', 'Pemenang']
                         if data_pertandingan:
-                            for pertandingan in data_pertandingan:
+                            for id_match, details in data_pertandingan.items():
                                 tabel.add_row([
-                                    pertandingan['id'],
-                                    pertandingan['pemain_putih'],
-                                    pertandingan['pemain_hitam'],
-                                    pertandingan['jumlah_langkah'],
-                                    pertandingan['pemenang']
+                                    id_match,
+                                    details['pemain_putih'],
+                                    details['pemain_hitam'],
+                                    details['jumlah_langkah'],
+                                    details['pemenang']
                                 ])
                             print(tabel)
                         else:
@@ -347,12 +332,7 @@ while True:
             if username_baru == 'x':
                 break
 
-            username_sudah_ada = False
-            for user in data_user:
-                if user['username'] == username_baru:
-                    username_sudah_ada = True
-                    break
-            if username_sudah_ada == True:
+            if username_baru in data_user:
                 print(Fore.RED + '\nUsername sudah digunakan.')
                 input(Fore.CYAN + 'Tekan Enter untuk cobal lagi...' + Style.RESET_ALL)
             else:
@@ -361,7 +341,7 @@ while True:
                     password_baru = input('Masukkan Password Baru: ')
                     if not password_baru.strip():
                         print(Fore.RED + 'Password tidak boleh kosong.')
-                data_user.append({'username' : username_baru, 'password' :password_baru, 'role' : 'user'})
+                data_user[username_baru] = {'password': password_baru, 'role': 'user'}
                 print(Fore.GREEN + '\nRegistrasi berhasil! Silakan login.')
                 input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
                 break
