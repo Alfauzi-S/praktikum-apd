@@ -273,12 +273,12 @@ try:
     password = input('Masukkan Password : ')
     if len(password) < 8:
         raise ValueError('Password minimal memiliki panjang 8 karakter')
-    if not any(char.isdigit() for char in password):
+    if not any(char.isdigit() for char in password): # mengecek apakah ada angka di dalam password
         raise ValueError('Password wajib mengandung minimal satu angka')
 except ValueError as e:
     print(e)
 else :
-    print('Password berhasil dibuat')
+    print(f'Password berhasil dibuat {password}')
 
 # Buatlah Error Handling jika key tidak dapat ditemukan pada dictionary dan berikan
 # pesan “Kode barang tidak ditemukan
