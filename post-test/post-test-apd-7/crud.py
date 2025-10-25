@@ -75,7 +75,7 @@ def get_data_for_update():
                     print('\nPilihan Hasil Baru: 1. Putih Menang, 2. Hitam Menang, 3. Seri')
                     pilih_hasil = get_number('Pilihan (1/2/3): ')
                     if pilih_hasil in [1, 2, 3]:
-                        hasil = 'Putih Menang' if pilih_hasil == '1' else 'Hitam Menang' if pilih_hasil == '2' else 'Seri'
+                        hasil = 'Putih Menang' if pilih_hasil == 1 else 'Hitam Menang' if pilih_hasil == 2 else 'Seri'
                         break
                     else: print(Fore.RED + 'Pilihan tidak valid.')
 
