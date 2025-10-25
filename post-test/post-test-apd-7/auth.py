@@ -19,7 +19,6 @@ def login():
     else:
         print(Fore.RED + (f'\n{'-'*19}{'Login gagal'}{'-'*19}'))
         input(Fore.CYAN + 'Tekan Enter untuk kembali...' + Style.RESET_ALL)
-        
         return False, None, None
 
 # fungsi tanpa parameter

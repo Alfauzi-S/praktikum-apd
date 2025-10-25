@@ -1,16 +1,12 @@
-# tools.py
-
 import os
 from colorama import Fore
 
 # prosedur
 def clear():
-    """Prosedur untuk membersihkan layar."""
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# fungsi dengan parameter
+# fungsi dengan parameter dan rekursif
 def get_input(prompt):
-    """Fungsi rekursif untuk memastikan input tidak kosong."""
     masukan = input(prompt)
     if masukan.strip():
         return masukan
@@ -18,9 +14,8 @@ def get_input(prompt):
         print(Fore.RED + "Input tidak boleh kosong.")
         return get_input(prompt)
 
-# fungsi dengan parameter
+# fungsi dengan parameter dan rekursif
 def get_number(prompt):
-    """Fungsi rekursif untuk memastikan input adalah angka."""
     masukan = get_input(prompt)
     try:
         return int(masukan)

@@ -8,6 +8,7 @@ from data import users
 
 init(autoreset=True)
 
+# prosedur
 def main():
     while True:
         clear()

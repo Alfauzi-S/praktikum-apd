@@ -11,8 +11,8 @@ def get_data_for_read():
     if not matches:
         return None
     tabel = PrettyTable(['ID', 'Pemain Putih', 'Pemain Hitam', 'Langkah', 'Pemenang'])
-    for id_laga, detail in matches.items():
-        tabel.add_row([id_laga, detail['putih'], detail['hitam'], detail['langkah'], detail['pemenang']])
+    for id, detail in matches.items():
+        tabel.add_row([id, detail['putih'], detail['hitam'], detail['langkah'], detail['pemenang']])
     return tabel
 
 # CREATE
@@ -25,9 +25,9 @@ def get_data_for_create():
             id_str = get_input('ID pertandingan (ketik "x" untuk kembali): ')
             if id_str.lower() == 'x': return None, None
 
-            id_laga = int(id_str)
-            if id_laga in matches:
-                print(Fore.RED + f'\nID {id_laga} sudah digunakan.')
+            id = int(id_str)
+            if id in matches:
+                print(Fore.RED + f'\nID {id} sudah digunakan.')
                 input(Fore.CYAN + 'Tekan Enter...')
             else:
                 putih = get_input('Nama Pemain Putih: ')
@@ -42,7 +42,7 @@ def get_data_for_create():
                     else: print(Fore.RED + 'Pilihan tidak valid.')
                 
                 data_baru = {'putih': putih, 'hitam': hitam, 'langkah': langkah, 'pemenang': hasil}
-                return id_laga, data_baru
+                return id, data_baru
         except ValueError:
             print(Fore.RED + '\nID harus berupa angka!')
             input(Fore.CYAN + 'Tekan Enter...')
@@ -53,7 +53,7 @@ def get_data_for_update():
     read_table = get_data_for_read()
     if read_table:
         clear()
-        print(Fore.YELLOW + 'UBAH DATA PERTANDINGAN'.center(7))
+        print(Fore.YELLOW + 'UBAH DATA PERTANDINGAN'.center(70))
         print(read_table)
     else:
         print(Fore.RED + '\nBelum ada data pertandingan.')
@@ -61,7 +61,7 @@ def get_data_for_update():
     
     while True:
         try:
-            id_str = get_input('\nID Laga yang akan diubah (ketik "x" untuk kembali): ')
+            id_str = get_input('\nID pertandingan yang akan diubah (ketik "x" untuk kembali): ')
             if id_str.lower() == 'x': return None, None
 
             id_laga = int(id_str)
@@ -81,14 +81,13 @@ def get_data_for_update():
                 data_update = {'putih': putih, 'hitam': hitam, 'langkah': langkah, 'pemenang': hasil}
                 return id_laga, data_update
             else:
-                print(Fore.RED + f'ID {id_laga} tidak ditemukan.')
+                print(Fore.RED + f'\nID {id_laga} tidak ditemukan.')
         except ValueError:
-            print(Fore.RED + 'Input ID tidak valid.')
+            print(Fore.RED + 'ID harus berupa angka!')
 
 # DELETE
 # fungsi tanpa parameter
 def get_id_for_delete():
-    """FUNGSI (Delete) ini meminta ID yang akan dihapus dan MENGEMBALIKANNYA."""
     read_table = get_data_for_read()
     if read_table:
         clear()
@@ -101,13 +100,13 @@ def get_id_for_delete():
     
     while True:
         try:
-            id_str = get_input('\nID Laga yang akan dihapus (ketik "x" untuk kembali): ')
+            id_str = get_input('\nID pertandingan yang akan dihapus (ketik "x" untuk kembali): ')
             if id_str.lower() == 'x': return None
 
-            id_laga = int(id_str)
-            if id_laga in matches:
-                return id_laga
+            id = int(id_str)
+            if id in matches:
+                return id
             else:
-                print(Fore.RED + '\nID tidak ditemukan.')
+                print(Fore.RED + 'ID tidak ditemukan.')
         except ValueError:
-            print(Fore.RED + '\nID harus berupa angka!')
+            print(Fore.RED + 'ID harus berupa angka!')

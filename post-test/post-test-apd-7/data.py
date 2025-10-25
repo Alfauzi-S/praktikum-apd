@@ -1,8 +1,8 @@
 # variabel global
 users = {
+    'admin': {'password': '123', 'role': 'admin'},
     'alfauzi': {'password': '006', 'role': 'admin'},
-    'putra': {'password': '000', 'role': 'user'},
-    'admin': {'password': '123', 'role': 'admin'}
+    'putra': {'password': '000', 'role': 'user'}
 }
 
 # variabel global
