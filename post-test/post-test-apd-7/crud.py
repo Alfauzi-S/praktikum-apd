@@ -3,6 +3,7 @@ from colorama import Fore, Style
 from data import matches
 from tools import get_input, get_number, clear
 
+# READ
 # fungsi tanpa parameter
 def get_data_for_read():
     clear()
@@ -14,6 +15,7 @@ def get_data_for_read():
         tabel.add_row([id_laga, detail['putih'], detail['hitam'], detail['langkah'], detail['pemenang']])
     return tabel
 
+# CREATE
 # fungsi tanpa parameter
 def get_data_for_create():
     while True:
@@ -33,9 +35,9 @@ def get_data_for_create():
                 langkah = get_number('Jumlah Langkah: ')
                 while True:
                     print('\nPilihan Hasil: 1. Putih Menang, 2. Hitam Menang, 3. Seri')
-                    pilih_hasil = get_input('Pilihan (1/2/3): ')
-                    if pilih_hasil in ['1', '2', '3']:
-                        hasil = 'Putih Menang' if pilih_hasil == '1' else 'Hitam Menang' if pilih_hasil == '2' else 'Seri'
+                    pilih_hasil = get_number('Pilihan (1/2/3): ')
+                    if pilih_hasil in [1, 2, 3]:
+                        hasil = 'Putih Menang' if pilih_hasil == 1 else 'Hitam Menang' if pilih_hasil == 2 else 'Seri'
                         break
                     else: print(Fore.RED + 'Pilihan tidak valid.')
                 
@@ -45,11 +47,13 @@ def get_data_for_create():
             print(Fore.RED + '\nID harus berupa angka!')
             input(Fore.CYAN + 'Tekan Enter...')
 
+# UPDATE
+# fungsi tanpa parameter
 def get_data_for_update():
     read_table = get_data_for_read()
     if read_table:
         clear()
-        print(Fore.YELLOW + 'UBAH DATA PERTANDINGAN'.center(77))
+        print(Fore.YELLOW + 'UBAH DATA PERTANDINGAN'.center(7))
         print(read_table)
     else:
         print(Fore.RED + '\nBelum ada data pertandingan.')
@@ -68,8 +72,8 @@ def get_data_for_update():
                 langkah = get_number('Jumlah Langkah Baru: ')
                 while True:
                     print('\nPilihan Hasil Baru: 1. Putih Menang, 2. Hitam Menang, 3. Seri')
-                    pilih_hasil = get_input('Pilihan (1/2/3): ')
-                    if pilih_hasil in ['1', '2', '3']:
+                    pilih_hasil = get_number('Pilihan (1/2/3): ')
+                    if pilih_hasil in [1, 2, 3]:
                         hasil = 'Putih Menang' if pilih_hasil == '1' else 'Hitam Menang' if pilih_hasil == '2' else 'Seri'
                         break
                     else: print(Fore.RED + 'Pilihan tidak valid.')
@@ -81,11 +85,14 @@ def get_data_for_update():
         except ValueError:
             print(Fore.RED + 'Input ID tidak valid.')
 
+# DELETE
+# fungsi tanpa parameter
 def get_id_for_delete():
     """FUNGSI (Delete) ini meminta ID yang akan dihapus dan MENGEMBALIKANNYA."""
     read_table = get_data_for_read()
     if read_table:
         clear()
+        print(Fore.YELLOW + 'HAPUS DATA PERTANDINGAN'.center(70))
         print(read_table)
     else:
         print(Fore.RED + '\nBelum ada data pertandingan.')

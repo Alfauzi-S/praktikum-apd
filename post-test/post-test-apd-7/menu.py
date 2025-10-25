@@ -6,6 +6,7 @@ from tools import get_input, clear
 from crud import get_data_for_read, get_data_for_create, get_data_for_update, get_id_for_delete
 from data import matches
 
+# prosedur
 def menu_admin(nama):
     """Prosedur untuk menampilkan menu admin dan mengeksekusi pilihan."""
     while True:
@@ -53,6 +54,7 @@ def menu_admin(nama):
             print(Fore.RED + 'Pilihan tidak valid.')
             input(Fore.CYAN + 'Tekan Enter untuk mencoba lagi...' + Style.RESET_ALL)
 
+# prosedur
 def menu_user(nama):
     """Prosedur untuk menampilkan menu pengguna."""
     while True:

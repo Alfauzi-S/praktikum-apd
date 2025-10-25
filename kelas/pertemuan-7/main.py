@@ -258,14 +258,14 @@
 
 # Buatlah Error Handling untuk melakukan input nama dengan kriteria tidak boleh kosong atau hanya berisi spasi saja.
 
-# try:
-#     nama = input('Masukkan Nama : ')
-#     if nama.strip() == '':
-#         raise ValueError('Nama tidak boleh kosong atau hanya berisi spasi saja')
-# except ValueError as e:
-#     print(e)
-# else :
-#     print(f'Nama yang kamu input : {nama}')
+try:
+    nama = input('Masukkan Nama : ')
+    if nama.strip() == '':
+        raise ValueError('Nama tidak boleh kosong atau hanya berisi spasi saja')
+except ValueError as e:
+    print(e)
+else :
+    print(f'Nama yang kamu input : {nama}')
 
 # Buatlah Error Handling untuk melakukan input password dengan kriteria password minimal memiliki panjang 8 karakter dan wajib ada angka. Berikan keterangan juga kriteria mana yang tidak terpenuhi.
 
