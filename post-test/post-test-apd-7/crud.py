@@ -57,7 +57,8 @@ def get_data_for_update():
         print(read_table)
     else:
         print(Fore.RED + '\nBelum ada data pertandingan.')
-        return None, None
+        input(Fore.CYAN + '\nTekan Enter untuk kembali...' + Style.RESET_ALL)
+        return None ,None
     
     while True:
         try:

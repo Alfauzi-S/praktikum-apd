@@ -21,6 +21,7 @@ def menu_admin(nama):
                 input(Fore.CYAN + '\nTekan Enter untuk kembali...' + Style.RESET_ALL)
             else:
                 print(Fore.RED + '\nBelum ada data pertandingan.')
+                input(Fore.CYAN + '\nTekan Enter untuk kembali...' + Style.RESET_ALL)
 
         elif pilih == 2:
             id_baru, data_baru = get_data_for_create()
@@ -69,6 +70,7 @@ def menu_user(nama):
                 input(Fore.CYAN + '\nTekan Enter untuk kembali...' + Style.RESET_ALL)
             else:
                 print(Fore.RED + '\nBelum ada data pertandingan.')
+                input(Fore.CYAN + '\nTekan Enter untuk kembali...' + Style.RESET_ALL)
                 
         elif pilih == 0:
             print(Fore.YELLOW + 'Anda telah keluar.')
