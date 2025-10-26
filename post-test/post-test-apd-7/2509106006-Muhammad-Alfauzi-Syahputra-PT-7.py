@@ -12,7 +12,7 @@ init(autoreset=True)
 def main():
     while True:
         clear()
-        print('PENCATATAN HASIL LAGA CATUR'.center(50))
+        print('PENCATATAN HASIL PERTANDINGAN CATUR'.center(50))
         print(Fore.YELLOW + str(main_display))
         pilihan = get_number('Masukkan pilihan Anda: ')
 
