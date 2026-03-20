@@ -6,17 +6,23 @@ Repositori posttest untuk Praktikum Algoritma dan Pemrograman Dasar A1 tahun 202
 
 - **Language**: Python 🐍
 - **Editor**: Visual Studio Code 💻
-- **Popular Libraries**:
-  - `numpy` - Numerical computing
-  - `pandas` - Data manipulation & analysis
-  - `matplotlib` - Data visualization
-  - `colorama` - Terminal colors
-  - `prettytable` - Table formatting
+- **Version Control**: Git & GitHub
+- 
+## 🛠️ Tech Stack
+
+
+### Libraries:
+- **pandas** - Data manipulation & analysis
+- **matplotlib** - Data visualization
+- **seaborn** - Advanced data visualization
+- **numpy** - Numerical computing
+- **colorama** - Terminal colors
+- **prettytable** - Table formatting
 
 ## 📦 Install dependencies
 
 ```bash
-pip install numpy pandas matplotlib colorama prettytable
+pip install numpy pandas matplotlib seaborn colorama prettytable
 ```
 
 ## 📚 Resources
@@ -27,3 +33,7 @@ pip install numpy pandas matplotlib colorama prettytable
 - [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
 - [Colorama Documentation](https://pypi.org/project/colorama/)
 - [PrettyTable Documentation](https://pypi.org/project/prettytable/)
+- [Seaborn Documentation](https://seaborn.pydata.org/)
+
+**Dibuat oleh:** Alfauzi-S  
+**Tahun:** 2025
