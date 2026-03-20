@@ -1,4 +1,4 @@
-# 🚀 Praktikum Algoritma dan Pemrograman Dasar A1 2025
+# Praktikum Algoritma dan Pemrograman Dasar A1 2025
 
 Repositori posttest untuk Praktikum Algoritma dan Pemrograman Dasar A1 tahun 2025.
 
